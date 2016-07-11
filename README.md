@@ -20,14 +20,12 @@ Before you can build the project, need to make sure all dependencies are install
     `$ ./gradlew clean build`
 1. The Spring Boot über jar can be found in the build/libs directory and can be launched
 via `$ java -jar build/libs/IoT-Dashboard.jar`.
-1. The dashboard should be able to be viewed via [http://localhost:8080/index.html](http://localhost:8080/index.html)
+1. The dashboard should be able to be viewed via [http://localhost:8080/](http://localhost:8080/)
 
 
 ## To deploy on Pivotal Cloud Foundry:
-
-1. `$ cf push <APP-NAME> -p IoT-Dashboard/build/libs/IoT-Dashboard.jar -b https://github.com/cloudfoundry/java-buildpack.git --no-start`
-2. `$ cf set-env <APP-NAME> JBP_CONFIG_OPEN_JDK_JRE '[version: 1.8.0_+, memory_heuristics: {heap: 85, stack: 10}]'`
-3. `$ cf start <APP-NAME>`
+1. `$ cf create-service <redis service> <plan> redis`
+1. `$ cf push -n <ROUTE-NAME>`
 
 ## References
 * [Yeoman](http://yeoman.io/)
