@@ -10,6 +10,7 @@ This is the AngularJS based dashboard + Spring Boot based emulator.  A tour of t
 
 ## Initial Setup
 Before you can build the project, need to make sure all dependencies are installed
+
 1. `$ npm install`
 1. `$ bundle install`
 1. `$ bower install`
