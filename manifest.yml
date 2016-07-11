@@ -1,9 +1,9 @@
 applications:
-- name: IoTemulator
+- name: ConnectedCarEmulator
   instances: 1
   memory: 1G
   disk_quota: 1G
-  host: iotemulator
+  host: myconnectedcar
   services:
   - redis
   path: build/libs/simulator-0.0.1-SNAPSHOT.jar

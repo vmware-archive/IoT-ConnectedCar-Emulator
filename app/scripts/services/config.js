@@ -2,5 +2,5 @@
 
 angular.module('services.config', [])
   .constant('configuration', {
-    baseUrl: 'http://localhost:9889'
+    baseUrl: 'http://localhost:8080'
   });

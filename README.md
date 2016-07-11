@@ -1,23 +1,26 @@
 # Connected Car Dashboard
-This is the AngularJS based dashboard.  A tour of the directories here:
+This is the AngularJS based dashboard + Spring Boot based emulator.  A tour of the directories here:
 
  * `app` - The source code for the dashboard
  * `bower_components` - The bower dependencies
+ * `node_modules` - Node.js dependencies
  * `config` - The configuration for the application
- * `src` - Java source to execute this module as a Spring Boot application.
+ * `src` - Java/Groovy source to execute this module as a Spring Boot application.
  * `test` - The test code for the application
 
-## To build the project:
-npm install
-bundle install
-bower install
+## Initial Setup
+Before you can build the project, need to make sure all dependencies are installed
+1. `$ npm install`
+1. `$ bundle install`
+1. `$ bower install`
 
+## To build the project:
 1. Execute a grunt build from the root of this module: `$ grunt clean build`.
-2. From the root of the project (one level up from this module) execute a gradle build:
+1. From the root of the project, execute a gradle build:
     `$ ./gradlew clean build`
-3. The Spring Boot über jar can be found in the build/lib directory and can be launched
-via `$ java -jar IoT-Dashboard.jar`.
-4. The dashboard should be able to be viewed via [http://localhost:8080/index.html](http://localhost:8080/index.html)
+1. The Spring Boot über jar can be found in the build/libs directory and can be launched
+via `$ java -jar build/libs/IoT-Dashboard.jar`.
+1. The dashboard should be able to be viewed via [http://localhost:8080/index.html](http://localhost:8080/index.html)
 
 
 ## To deploy on Pivotal Cloud Foundry:

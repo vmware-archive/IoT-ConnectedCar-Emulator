@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RequestMethod
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class SimulatorController {
+class EmulatorController {
 
     @Autowired
-    SimulatorDataService simulatorDataService
+    EmulatorDataService simulatorDataService
 
     @CrossOrigin(origins = "*")
     @RequestMapping(value = '/simulator/start/{vin}', method = RequestMethod.POST)

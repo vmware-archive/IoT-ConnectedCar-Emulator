@@ -9,7 +9,7 @@ import org.springframework.test.context.web.WebAppConfiguration
 @RunWith(SpringJUnit4ClassRunner)
 @SpringApplicationConfiguration(classes = SimulatorApplication)
 @WebAppConfiguration
-class SimulatorApplicationTests {
+class EmulatorApplicationTests {
 
 	@Test
 	void contextLoads() {

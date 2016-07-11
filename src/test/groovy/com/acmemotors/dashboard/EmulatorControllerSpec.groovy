@@ -29,7 +29,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringApplicationConfiguration(SimulatorApplication.class)
 @WebAppConfiguration
 //@WebIntegrationTest("server.port:9999")
-class SimulatorControllerSpec extends Specification {
+class EmulatorControllerSpec extends Specification {
 
     private MockMvc mockMvc
 

@@ -6,9 +6,9 @@ import org.springframework.scheduling.annotation.EnableScheduling
 
 @SpringBootApplication
 @EnableScheduling
-class SimulatorApplication {
+class EmulatorApplication {
 
 	static void main(String[] args) {
-		SpringApplication.run SimulatorApplication, args
+		SpringApplication.run EmulatorApplication, args
 	}
 }

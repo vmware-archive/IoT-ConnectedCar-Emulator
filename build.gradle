@@ -15,8 +15,8 @@ apply plugin: 'eclipse'
 apply plugin: 'spring-boot' 
 
 jar {
-	baseName = 'simulator'
-	version = '0.0.1-SNAPSHOT'
+	baseName = 'IoTConnectedCarEmulator'
+	version = ''
 }
 sourceCompatibility = 1.8
 targetCompatibility = 1.8

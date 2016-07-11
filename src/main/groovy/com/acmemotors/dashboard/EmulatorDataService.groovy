@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 
 @Service
-class SimulatorDataService {
+class EmulatorDataService {
 
     @Autowired
     RedisTemplate redisTemplate
