@@ -15,6 +15,10 @@ Before you can build the project, need to make sure all dependencies are install
 1. `$ bundle install`
 1. `$ bower install`
 
+## Develop locally
+1. `$ ./gradlew bootrun` Start the Sprint Boot App up
+1. `$ grunt serve` Start the local server with LiveReload enabled
+
 ## To build the project:
 1. Execute a grunt build from the root of this module: `$ grunt clean build`.
 1. From the root of the project, execute a gradle build:
