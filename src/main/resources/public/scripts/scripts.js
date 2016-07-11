@@ -82,7 +82,7 @@ angular.module('iotDashboard')
   // });
 
   $stomp
-  .connect(configuration.baseUrl + '/simulator')
+  .connect(configuration.baseUrl + '/emulator')
 
   // frame = CONNECTED headers
   .then(function (frame) {
