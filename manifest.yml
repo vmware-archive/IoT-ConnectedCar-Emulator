@@ -1,0 +1,9 @@
+applications:
+- name: IoTemulator
+  instances: 1
+  memory: 1G
+  disk_quota: 1G
+  host: iotemulator
+  services:
+  - redis
+  path: build/libs/simulator-0.0.1-SNAPSHOT.jar

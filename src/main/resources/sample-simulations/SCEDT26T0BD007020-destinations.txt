@@ -1,0 +1,29 @@
+{
+    "vin": "SCEDT26T0BD007020",
+    "destinations": [
+        {
+            "name": "The Flying Saucer Bar",
+            "latitude": "32.95213613469736",
+            "longitude": "-96.82029318440797",
+            "address": "14999 Montfort Dr., Addison, TX 75254"
+        },
+        {
+            "name": "The Dallas Omni Hotel",
+            "latitude": "32.77535975685151",
+            "longitude": "-96.80492823505934",
+            "address": "555 S Lamar, Dallas, TX 75202"
+        },
+        {
+            "name": "Babes Chicken Dinner House",
+            "latitude": "32.94339256088385",
+            "longitude": "-96.6493277217024",
+            "address": "1456 Belt Line Rd #171, Garland, TX 75044"
+        },
+        {
+            "name": "Sandy Lake Amusement Park",
+            "latitude": "32.96811733198699",
+            "longitude": "-96.92754630048057",
+            "address": "1800 Sandy Lake Rd, Carrollton, TX 75006"
+        }
+    ]
+}
