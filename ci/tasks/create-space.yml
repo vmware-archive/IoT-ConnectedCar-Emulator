@@ -1,0 +1,17 @@
+---
+platform: linux
+
+image: docker:///brianbyers/concourse-cfcli
+
+inputs:
+  - name: git-repo
+
+run:
+  path: git-repo/ci/tasks/create-space.sh
+
+params:
+  CF_API:
+  CF_USER:
+  CF_PASS:
+  CF_ORG:
+  CF_SPACE:

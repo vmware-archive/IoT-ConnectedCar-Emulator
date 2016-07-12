@@ -1,5 +1,6 @@
 jobs:
 - name: build-jar
+  serial_groups: [version]
   plan:
   - get: git-repo
   - get: version
@@ -17,15 +18,29 @@ jobs:
   - put: version
     params: {file: version/number}
 
-- name: deployAllTheThings
+- name: deploySpace1
+  serial_groups: [version]
   plan:
-    - get: git-repo
-      trigger: true
-      passed: [build-jar]
-    - put: deploy-app-space-1
+    - aggregate:
+      - get: release-candidate
+        passed: [build-jar]
+        trigger: true
+      - get: git-repo
+        passed: [build-jar]
+      - get: version
+        passed: [build-jar]
+    - task: create-space
+      file: git-repo/ci/tasks/create-space.yml
+    - task: deploy
+      file: git-repo/ci/tasks/deploy-artifact.yml
       params:
-      current_app_name: {{APP_1}}
-      path: release-candidate/IoTConnectedCarEmulator-*.jar
+        CF_API: {{CF_API}}
+        CF_USER: {{CF_USER_1}}
+        CF_PASS: {{CF_PASS}}
+        CF_ORG: {{CF_ORG_1}}
+        CF_SPACE: {{CF_SPACE}}
+        CF_APP: {{CF_APP_1}}
+        ARTIFACT_PATH: release-candidate/IoTConnectedCarEmulator-*.jar
 
 
 resources:
@@ -35,15 +50,6 @@ resources:
     uri: {{GIT_REPO}}
     branch: master
     private_key: {{GIT_PRIVATE_KEY}}
-
-- name: deploy-app-space-1
-  type: cf
-  source:
-    api: {{CF_API}}
-    username: {{CF_USER_1}}
-    password: {{CF_PASS}}
-    organization: {{CF_ORG_1}}
-    space: {{CF_SPACE}}
 
 - name: release-candidate
   type: s3

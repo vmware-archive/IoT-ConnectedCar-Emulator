@@ -1,0 +1,21 @@
+---
+platform: linux
+
+image: docker:///brianbyers/concourse-cfcli
+
+inputs:
+  - name: git-repo
+  - name: version
+  - name: release-candidate
+
+run:
+  path: git-repo/ci/tasks/deploy-artifact.sh
+
+params:
+  CF_API:
+  CF_USER:
+  CF_PASS:
+  CF_ORG:
+  CF_SPACE:
+  CF_APP:
+  ARTIFACT_PATH:
