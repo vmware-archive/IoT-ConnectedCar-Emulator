@@ -3,6 +3,7 @@ jobs:
   serial_groups: [version]
   plan:
   - get: git-repo
+    trigger: true
   - get: version
     params: {bump: minor}
   - task: build-artifact
@@ -31,6 +32,12 @@ jobs:
         passed: [build-jar]
     - task: create-space
       file: git-repo/ci/tasks/create-space.yml
+      params:
+        CF_API: {{CF_API}}
+        CF_USER: {{CF_USER_1}}
+        CF_PASS: {{CF_PASS}}
+        CF_ORG: {{CF_ORG_1}}
+        CF_SPACE: {{CF_SPACE}}
     - task: deploy
       file: git-repo/ci/tasks/deploy-artifact.yml
       params:
