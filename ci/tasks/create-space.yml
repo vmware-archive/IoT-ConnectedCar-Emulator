@@ -1,7 +1,11 @@
 ---
 platform: linux
 
-image: docker:///brianbyers/concourse-cfcli
+image_resource:
+  type: docker-image
+  source:
+    repository: brianbyers/concourse-cfcli
+    tag: "latest"
 
 inputs:
   - name: git-repo
