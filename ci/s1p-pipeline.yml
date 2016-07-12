@@ -39,8 +39,8 @@ jobs:
         CF_PASS: {{CF_PASS}}
         CF_ORG: {{CF_ORG_1}}
         CF_SPACE: {{CF_SPACE}}
-        CF_APP: {{CF_APP_1}}
         ARTIFACT_PATH: release-candidate/IoTConnectedCarEmulator-*.jar
+        CF_ROUTE: {{CF_APP_1}}
 
 
 resources:

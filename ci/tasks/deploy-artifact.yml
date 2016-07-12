@@ -19,3 +19,4 @@ params:
   CF_SPACE:
   CF_APP:
   ARTIFACT_PATH:
+  CF_ROUTE:
