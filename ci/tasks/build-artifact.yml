@@ -10,6 +10,7 @@ image_resource:
 
 inputs:
   - name: git-repo
+  - name: version
 
 outputs:
   - name: artifact-dir

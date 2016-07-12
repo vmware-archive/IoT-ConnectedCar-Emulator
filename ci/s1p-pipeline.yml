@@ -1,31 +1,31 @@
 jobs:
+- name: build-jar
+  plan:
+  - get: git-repo
+  - get: version
+    params: {bump: minor}
+  - task: build-artifact
+    file: git-repo/ci/tasks/build-artifact.yml
+    timeout: 5m
+  - put: release-candidate
+    params:
+      file: artifact-dir/IoTConnectedCarEmulator-*.jar
+  - put: git-repo
+    params:
+      repository: git-repo
+      tag: version/number
+  - put: version
+    params: {file: version/number}
 
-  - name: build-jar
-      plan:
-      - get: git-repo
-      - get: version
-        params: {bump: minor}
-      - task: build-artifact
-        file: git-repo/ci/tasks/build-artifact.yml
-        timeout: 5m
-      - put: release-candidate
-        params:
-          file: artifact-dir/IoTConnectedCarEmulator-*.jar
-      - put: git-repo
-        params:
-          repository: git-repo
-          tag: version/number
-      - put: version
-        params: {file: version/number}
-
-  - name: deployAllTheThings
-    plan:
-      - get: git-repo
-        trigger: true
-      - put: deploy-app-space-1
-        params:
-        current_app_name: {{APP_1}}
-        path: release-candidate/IoTConnectedCarEmulator-*.jar
+- name: deployAllTheThings
+  plan:
+    - get: git-repo
+      trigger: true
+      passed: [build-jar]
+    - put: deploy-app-space-1
+      params:
+      current_app_name: {{APP_1}}
+      path: release-candidate/IoTConnectedCarEmulator-*.jar
 
 
 resources:
