@@ -16,11 +16,7 @@ Before you can build the project, need to make sure all dependencies are install
 1. `$ npm install`
 1. `$ bundle install` (is this fails, try `sudo gem install bundle`, then try again)
 1. `$ bower install`
-1. Get your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key#key)
-
-## Develop locally
-1. `$ ./gradlew bootrun` Start the Spring Boot App up
-1. `$ grunt serve` Start the local server with LiveReload enabled
+1. Get your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key#key).
 
 ## To build the project:
 1. Edit the `./app/index.html` file, replacing `MY_GOOGLE_API_KEY` with your Google Maps API key (see above)
@@ -29,10 +25,16 @@ Before you can build the project, need to make sure all dependencies are install
 1. If you want to run locally, you will need a running [Redis](http://redis.io/download#installation), on _localhost_
 1. The app can be run locally using the Spring Boot _über JAR_: `$ java -jar build/libs/IoTConnectedCarEmulator.jar`
 1. If running locally, the dashboard is accessible here: [http://localhost:8080/](http://localhost:8080/)
+1. Click the blue right arrow icon near the top to start it, or use one of the others to speed it up, rewind, etc.
+1. If you omitted the Google Maps API key step, you might get an _Oops! Something went wrong._ error, with some additional detail, but no map.  In this case, repeat the above build steps, ensuring you do that replacement in `index.html`.
 
 ## To deploy on Pivotal Cloud Foundry:
 1. `$ cf create-service <redis service> <plan> redis`
 1. `$ cf push -n <ROUTE-NAME>`
+
+## Develop locally (iterate rapidly on HTML and Javascript changes)
+1. `$ ./gradlew bootrun` Start the Spring Boot App up
+1. `$ grunt serve` Start the local server with LiveReload enabled
 
 ## References
 * [Yeoman](http://yeoman.io/)
