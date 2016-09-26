@@ -24,7 +24,7 @@ Before you can build the project, need to make sure all dependencies are install
 
 ## To build the project:
 1. Edit the `./app/index.html` file, replacing `MY_GOOGLE_API_KEY` with your Google Maps API key (see above)
-1. `$ grunt clean build`.
+1. `$ grunt clean build`
 1. `$ ./gradlew clean assemble`
 1. If you want to run locally, you will need a running [Redis](http://redis.io/download#installation), on _localhost_
 1. The app can be run locally using the Spring Boot _über JAR_: `$ java -jar build/libs/IoTConnectedCarEmulator.jar`
