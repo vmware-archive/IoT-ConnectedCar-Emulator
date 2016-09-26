@@ -7,4 +7,6 @@ applications:
   services:
   - redis
   path: build/libs/IoTConnectedCarEmulator.jar
-  buildpack: java_buildpack
+  #buildpack: java_buildpack
+  buildpack: java_buildpack_offline
+
