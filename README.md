@@ -31,7 +31,8 @@ Before you can build the project, need to make sure all dependencies are install
 ## To deploy on Pivotal Cloud Foundry:
 1. Have a look at and, if necessary, edit the [manifest](./manifest.yml).  Note that the `redis` service there corresponds with the _redis_ service you create in the next step.
 1. `$ cf create-service <redis service> <plan> redis` (e.g. `cf create-service rediscloud 30mb redis`)
-1. `$ cf push -n <ROUTE-NAME>` (e.g. `cf push -n myconnectedcar`)
+1. `$ cf push`
+1. `$ cf apps` will show your deployed apps, including the URL for this app
 
 ## Develop locally (iterate rapidly on HTML and Javascript changes)
 1. `$ ./gradlew bootrun` Start the Spring Boot App up
