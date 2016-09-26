@@ -29,8 +29,9 @@ Before you can build the project, need to make sure all dependencies are install
 1. If you omitted the Google Maps API key step, you might get an "_Oops! Something went wrong_" error, with some additional detail, but no map.  In this case, repeat the above build steps, ensuring you do that replacement in `index.html`.
 
 ## To deploy on Pivotal Cloud Foundry:
-1. `$ cf create-service <redis service> <plan> redis`
-1. `$ cf push -n <ROUTE-NAME>`
+1. Have a look at and, if necessary, edit the [manifest](./manifest.yml).  Note that the `redis` service there corresponds with the _redis_ service you create in the next step.
+1. `$ cf create-service <redis service> <plan> redis` (e.g. `cf create-service rediscloud 30mb redis`)
+1. `$ cf push -n <ROUTE-NAME>` (e.g. `cf push -n myconnectedcar`)
 
 ## Develop locally (iterate rapidly on HTML and Javascript changes)
 1. `$ ./gradlew bootrun` Start the Spring Boot App up
