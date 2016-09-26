@@ -27,7 +27,7 @@ Before you can build the project, need to make sure all dependencies are install
     `$ ./gradlew clean assemble`
 1. *If* you want to run locally, you will need a running Redis instance on _localhost_
 1. The Spring Boot _über JAR_ can be found in the build/libs directory and can be launched
-via `$ java -jar build/libs/IoT-Dashboard.jar`. (FIXME: as it exists today, this will fail)
+via `$ java -jar build/libs/IoTConnectedCarEmulator.jar`. (FIXME: as it exists today, this will fail)
 1. The dashboard should be able accessible via [http://localhost:8080/](http://localhost:8080/)
 
 ## To deploy on Pivotal Cloud Foundry:
