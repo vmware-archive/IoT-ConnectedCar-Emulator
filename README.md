@@ -26,7 +26,7 @@ Before you can build the project, need to make sure all dependencies are install
 1. The app can be run locally using the Spring Boot _über JAR_: `$ java -jar build/libs/IoTConnectedCarEmulator.jar`
 1. If running locally, the dashboard is accessible here: [http://localhost:8080/](http://localhost:8080/)
 1. Click the blue right arrow icon near the top to start it, or use one of the others to speed it up, rewind, etc.
-1. If you omitted the Google Maps API key step, you might get an _Oops! Something went wrong._ error, with some additional detail, but no map.  In this case, repeat the above build steps, ensuring you do that replacement in `index.html`.
+1. If you omitted the Google Maps API key step, you might get an "_Oops! Something went wrong_" error, with some additional detail, but no map.  In this case, repeat the above build steps, ensuring you do that replacement in `index.html`.
 
 ## To deploy on Pivotal Cloud Foundry:
 1. `$ cf create-service <redis service> <plan> redis`
