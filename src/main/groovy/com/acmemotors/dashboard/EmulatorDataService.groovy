@@ -8,6 +8,14 @@ import org.springframework.messaging.simp.SimpMessagingTemplate
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 
+import org.springframework.core.io.ClassPathResource
+import org.springframework.core.io.Resource
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver
+
+import java.io.InputStreamReader
+import java.io.BufferedReader
+import java.io.InputStream
+
 @Service
 class EmulatorDataService {
 
@@ -34,13 +42,15 @@ class EmulatorDataService {
     }
 
     public List getCars() {
-        String path = this.getClass().getClassLoader().getResource("simulations").path
-        File simulations = new File(path)
+        PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
+        // Within a JAR, you can't successfully use File for these things.
+        Resource[] resources = resolver.getResources("classpath:/simulations/*.txt");
         List vins = []
-        simulations.eachFile(FileType.FILES) { file ->
-            vins << file.name.split('-')[0]
+        for (Resource r : resources)
+        {
+          String fileName = r.getFilename()
+          vins << fileName.split('-')[0]
         }
-
         vins = vins.unique()
         return vins
     }
@@ -50,12 +60,16 @@ class EmulatorDataService {
         redisTemplate.boundSetOps(CURRENT_VINS).remove(vin)
         redisTemplate.delete(getSimulatorDataKey(vin))
         redisTemplate.opsForValue().set(getSpeedKey(vin), 1)
-        String path = this.getClass().getClassLoader().getResource("simulations/${vin}-drive.txt").path
-        if (path) {
-            new File(path).eachLine { line ->
-                redisTemplate.boundListOps(getSimulatorDataKey(vin)).leftPush(line)
-            }
+        // Same issue with reading a file that is inside a JAR.
+        InputStream input = getClass().getResourceAsStream("/simulations/" + vin + "-drive.txt")
+        BufferedReader reader = new BufferedReader(new InputStreamReader(input))
+        String line;
+        while ((line = reader.readLine()) != null)
+        {
+          redisTemplate.boundListOps(getSimulatorDataKey(vin)).leftPush(line)
         }
+        reader.close()
+        input.close()
         redisTemplate.boundSetOps(CURRENT_VINS).add(vin)
         println "Restarted Simulator for ${vin}"
     }
@@ -149,16 +163,16 @@ class EmulatorDataService {
     }
 
     public getDestinations(vin) {
-        String path = this.getClass().getClassLoader().getResource("simulations/${vin}-destinations.txt").path
-        if (path) {
-            File file = new File(path)
+        InputStream input = getClass().getResourceAsStream("/simulations/${vin}-destinations.txt")
+        if (input != null) {
             try {
-                return new JsonSlurper().parse(file)
+                return new JsonSlurper().parse(input)
             } catch (Exception) {
                 println "Error parsing destinations for vin ${vin}"
                 return null
             }
         } else {
+            println "Error accessing 'destinations' file"
             return null
         }
     }
