@@ -15,6 +15,7 @@ Before you can build the project, need to make sure all dependencies are install
 1. [Node.JS](https://nodejs.org/en/download/), a recent version (26 Sept. 2016: I used v5.7.1)
 1. `$ npm install`
 1. `$ bundle install` (is this fails, try `sudo gem install bundle`, then try again)
+1. `$ sudo npm install bower -g`
 1. `$ bower install`
 1. Get your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key#key).
 1. If you plan to deploy to Cloud Foundry, get the [cf CLI](https://github.com/cloudfoundry/cli) for your platform
