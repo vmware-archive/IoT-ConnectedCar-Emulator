@@ -17,6 +17,7 @@ Before you can build the project, need to make sure all dependencies are install
 1. `$ bundle install` (is this fails, try `sudo gem install bundle`, then try again)
 1. `$ bower install`
 1. Get your [Google Maps API key](https://developers.google.com/maps/documentation/javascript/get-api-key#key).
+1. If you plan to deploy to Cloud Foundry, get the [cf CLI](https://github.com/cloudfoundry/cli) for your platform
 
 ## To build the project:
 1. Edit the `./app/index.html` file, replacing `MY_GOOGLE_API_KEY` with your Google Maps API key (see above)
