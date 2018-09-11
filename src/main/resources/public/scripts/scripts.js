@@ -81,8 +81,14 @@ angular.module('iotDashboard')
   //     $log.debug(args)
   // });
 
+  let wssUrl = configuration.baseUrl
+  if (configuration.baseUrl === '') {
+    wssUrl = window.location.protocol + "//" + window.location.host + ":8443"
+  }
+
+  // console.log('wss url:', wssUrl);
   $stomp
-  .connect(configuration.baseUrl + '/emulator')
+  .connect(wssUrl + '/emulator')
 
   // frame = CONNECTED headers
   .then(function (frame) {
@@ -276,7 +282,7 @@ angular.module('iotDashboard')
           url: 'images/icon_marker.png',
           scaledSize: { height: 40, width: 30 }
         };
-        
+
         scope.id = scope.journey.id.toString();
       },
       templateUrl: 'templates/journey_marker.html'
